@@ -15,7 +15,9 @@
 @media (max-width: 35em) {
   .prose {
     max-width: 90vw !important;
+    color: antiquewhite;
   }
+  
 }
 
 .notFound > canvas {
