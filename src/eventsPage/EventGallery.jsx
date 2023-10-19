@@ -21,10 +21,10 @@ const EventGallery = ({ images }) => {
                 naturalSlideWidth={100}
                 naturalSlideHeight={100}
                 totalSlides={images.length}
-                visibleSlides={1}
+                visibleSlides={2}
                 dragEnabled={true}
                 currentSlide={0} 
-                isInfinite 
+                infinite={true}
             >
                 <Slider ref={sliderRef}>
                     {images.map((image, index) => (

@@ -129,8 +129,7 @@ const handleSearch = async (query) => {
             );
           })}
           {searchTerm &&
-          searchTerm.length > 0 &&
-          recommendations.length === 0 ? (
+          searchTerm.length > 0? (
             <>
               <button
                 className="bg-gray-300 border-t-2 border-gray-400 text-center flex justify-center min-h-full hover:bg-gray-800 hover:text-gray-200 min-w-full"

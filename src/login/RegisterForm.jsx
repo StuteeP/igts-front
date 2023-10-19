@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import Notification from "../notifications/Notification";
 import { SERVER_URL } from "../config";
+import PasswordStrengthMeter from "./PasswordStrength/PasswordStrengthMeter";
+import PasswordStrengthError from "./PasswordStrength/PasswordStrengthError";
 
 const RegisterForm = ({
   showNotification,
@@ -37,10 +39,9 @@ const RegisterForm = ({
 
     return regex.test(email);
   }
-
+ 
   const handleRegister = async (e) => {
     e.preventDefault();
-
     // Validate input fields
     if (!lname) setLnameEmpty(true);
     if (!validateEmail(emailR)) setInvalidEmail(true);
@@ -192,13 +193,13 @@ const RegisterForm = ({
               : ""
           }`}
           placeholder="Password"
+          id="password"
           value={invalidPass ? "*Enter 8 char long valid password" : passwordR}
-          onChange={(e) => setPasswordR(e.target.value)}
+          onChange={(e) => {setPasswordR(e.target.value)}}
           onClick={(e) => {
             setInvalidPass(false);
           }}
         />
-
         <input
           type={passDontMatch ? "text" : "password"}
           className={`bg-stone-800 text-gray-400  lg:p-3 sm:p-5 md:p-5  focus:outline focus:outline-gray-600 lg:text-base sm:text-3xl md:text-3xl rounded-lg focus:0 block w-full p-2.5 ${
@@ -212,6 +213,9 @@ const RegisterForm = ({
           onClick={(e) => setPassDontMatch(false)}
         />
       </div>
+      
+      <div><PasswordStrengthMeter password={passwordR}/></div>
+      <div>{passwordR !== "" && (<PasswordStrengthError passwordR={passwordR}/>)}</div>
 
       <div className="flex flex-col justify-center mx-auto">
         <div className="flex items-center  mt-4">

@@ -13,6 +13,7 @@ import EventCreationPage from "./eventCreationForm/EventCreationPage";
 import ShareButton from "./article/shareButton/ShareButtons";
 import ArticleContent from "./article/articleContent/ArticleContent";
 import ArticlesHome from "./articles_home/ArticlesHome";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 import {
   EarthCanvas,
   BallCanvas,
@@ -86,6 +87,7 @@ function IgtsWebsite() {
 
   return (
     <Router>
+      <GoogleOAuthProvider clientId={`${process.env.REACT_APP_GOOGLE_CLIENT_ID}`}>
       <div className="">
         <Context.Provider value={user}>
           <section className="">
@@ -153,6 +155,7 @@ function IgtsWebsite() {
           </section>
         </Context.Provider>
       </div>
+      </GoogleOAuthProvider>
     </Router>
   );
 }
