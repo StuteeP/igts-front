@@ -34,103 +34,118 @@ const MenuBar = ({ editor }) => {
         disabled={!editor.can().chain().focus().toggleBold().run()}
         className={editor.isActive("bold") ? "is-active" : ""}
       >
-       <FaBold/> 
+        <a href="#" title="BOLD"><FaBold/></a> 
       </button>
       <button
         onClick={() => editor.chain().focus().toggleItalic().run()}
         disabled={!editor.can().chain().focus().toggleItalic().run()}
         className={editor.isActive("italic") ? "is-active" : ""}
       >
-        <FaItalic/>
+        <a href="#" title="ITALIC"><FaItalic/></a> 
       </button>
       <button
         onClick={() => editor.chain().focus().toggleUnderline().run()}
         disabled={!editor.can().chain().focus().toggleItalic().run()}
         className={editor.isActive("underline") ? "is-active" : ""}
       >
-        <FaUnderline/>
+        <a href="#" title="UNDERLINE"><FaUnderline/></a> 
       </button>
       <button
         onClick={() => editor.chain().focus().toggleStrike().run()}
         disabled={!editor.can().chain().focus().toggleStrike().run()}
         className={editor.isActive("strike") ? "is-active" : ""}
       >
-        <FaStrikethrough/>
+        <a href="#" title="STRIKE"><FaStrikethrough/></a> 
       </button>
-      <button
+      <button 
         onClick={() => editor.chain().focus().toggleCode().run()}
         disabled={!editor.can().chain().focus().toggleCode().run()}
         className={editor.isActive("code") ? "is-active" : ""}
       >
-        <BsCodeSlash/>
+        <a href="#" title="CODE"><BsCodeSlash/></a>
+        
       </button>
-      <button onClick={() => editor.chain().focus().unsetAllMarks().run()}>
-        <HiOutlineBookmarkSlash/>
+      <button 
+      onClick={() => editor.chain().focus().unsetAllMarks().run()}>
+        <a href="#" title="CLEAR MARKS"><HiOutlineBookmarkSlash/></a>
+      
       </button>
       <button onClick={() => editor.chain().focus().clearNodes().run()}>
-        <BsNodeMinus/>
+        <a href="#" title="CLEAR NODES"><BsNodeMinus/></a>
+        
       </button>
       <button
         onClick={() => editor.chain().focus().setParagraph().run()}
         className={editor.isActive("paragraph") ? "is-active" : ""}
       >
-        <FaParagraph/>
+        <a href="#" title="PARAGRAPH"><FaParagraph/></a>
+        
       </button>
       <button
         onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
         className={editor.isActive("heading", { level: 2 }) ? "is-active" : ""}
       >
-        <FaHeading/>
+        <a href="#" title="HEADING 1"><FaHeading/></a>
+        
       </button>
 
       <button
         onClick={() => editor.chain().focus().toggleHeading({ level: 4 }).run()}
         className={editor.isActive("heading", { level: 4 }) ? "is-active" : ""}
       >
-        <FaHeading/>
+        <a href="#" title="HEADING 2"><FaHeading/></a>
+        
       </button>
       <button
         onClick={() => editor.chain().focus().toggleBulletList().run()}
         className={editor.isActive("bulletList") ? "is-active" : ""}
       >
-        <FaListUl/>
+        <a href="#" title="BULLETS"><FaListUl/></a>
+        
       </button>
       <button
         onClick={() => editor.chain().focus().toggleOrderedList().run()}
         className={editor.isActive("orderedList") ? "is-active" : ""}
       >
-        <FaListOl/>
+        <a href="#" title="ORDERED LIST"><FaListOl/></a>
+        
       </button>
       <button
         onClick={() => editor.chain().focus().toggleCodeBlock().run()}
         className={editor.isActive("codeBlock") ? "is-active" : ""}
       >
-        <BiCodeBlock/>
+        <a href="#" title="CODE BLOCK"><BiCodeBlock/></a>
+        
       </button>
       <button
         onClick={() => editor.chain().focus().toggleBlockquote().run()}
         className={editor.isActive("blockquote") ? "is-active" : ""}
       >
-        <BsBlockquoteLeft/>
+        <a href="#" title="BLOCK QUOTE"><BsBlockquoteLeft/></a>
+        
       </button>
       <button onClick={() => editor.chain().focus().setHorizontalRule().run()}>
-        <RxDividerHorizontal/>
+        <a href="#" title="HORIZONTAL RULE"><RxDividerHorizontal/></a>
+        
       </button>
       <button onClick={() => editor.chain().focus().setHardBreak().run()}>
-        <BsFileBreakFill/>
+        <a href="#" title="HARD BREAK"><BsFileBreakFill/></a>
+        
       </button>
 
       <button
         onClick={() => editor.chain().focus().undo().run()}
         disabled={!editor.can().chain().focus().undo().run()}
       >
-        <FaUndo/>
+        <a href="#" title="UNDO"><FaUndo/></a>
+        
       </button>
       <button
         onClick={() => editor.chain().focus().redo().run()}
         disabled={!editor.can().chain().focus().redo().run()}
       >
-        <FaRedo/>
+        <a href="#" title="REDO"><FaRedo/></a>
+        
       </button>
       <button
         onClick={() => {
@@ -141,7 +156,8 @@ const MenuBar = ({ editor }) => {
           }
         }}
       >
-        <BiImageAdd/>
+        <a href="#" title="ADD IMAGE FROM URL"><BiImageAdd/></a>
+        
       </button>
       <button
         onClick={() => {
@@ -170,13 +186,15 @@ const MenuBar = ({ editor }) => {
         }}
         className={editor.isActive("link") ? "is-active" : ""}
       >
-        <MdDatasetLinked/>
+        <a href="#" title="SETLINK"><MdDatasetLinked/></a>
+        
       </button>
       <button
         onClick={() => editor.chain().focus().unsetLink().run()}
         disabled={!editor.isActive("link")}
       >
-        <MdOutlineDatasetLinked/>
+        <a href="#" title="UNSET LINK"><MdOutlineDatasetLinked/></a>
+        
       </button>
     </div>
   );
