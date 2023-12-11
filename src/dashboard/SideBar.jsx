@@ -11,19 +11,22 @@ const SideBar = () => {
       if (user.role === "REGULAR") {
         setLinks([
           { title: "My Profile", link: "/dashboard/profile", active: false },
-          ,
+          {title:"My Reading List", link: "/dashboard/readinglist", active:false},
           { title: "Logout", link: "/dashboard/logout", active: false },
         ]);
       } else if (user.role === "EDITOR") {
         setLinks([
           { title: "My Profile", link: "/dashboard/profile", active: false },
           { title: "My Blogs", link: "/dashboard/blogs", active: false },
+          {title:"My Reading List", link: "/dashboard/readinglist", active:false},
           { title: "Logout", link: "/dashboard/logout", active: false },
+          
         ]);
       } else if (user.role === "ADMIN") {
         setLinks([
           { title: "My Profile", link: "/dashboard/profile", active: false },
           { title: "My Blogs", link: "/dashboard/blogs", active: false },
+          {title:"My Reading List", link: "/dashboard/readinglist", active:false},
           { title: "Manage Events", link: "/dashboard/events", active: false },
           {
             title: "Manage Blogs",
@@ -36,6 +39,8 @@ const SideBar = () => {
             active: false,
           },
           { title: "Logout", link: "/dashboard/logout", active: false },
+          
+          
         ]);
       }
     }

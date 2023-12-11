@@ -135,7 +135,7 @@ function IgtsWebsite() {
 
             <Route
               exact
-              path="/:id/viewparticipants"
+              path="event/:id/viewmembers"
               element={<ViewParticipants />}
             />
 

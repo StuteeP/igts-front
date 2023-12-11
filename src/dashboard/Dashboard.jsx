@@ -11,6 +11,8 @@ import "./Dashboard.css";
 import BottomBar from "./BottomBar";
 import MetaDecorators from "../MetaDecorator";
 
+import ReadingList from "./ReadingList";
+
 const Dashboard = () => {
   const a = useLocation().pathname;
 
@@ -29,6 +31,11 @@ const Dashboard = () => {
   console.log(a);
 
   switch (a) {
+    case "/dashboard/readinglist":
+      toRender = <ReadingList />;
+      console.log()
+      break;
+
     case "/dashboard/blogs":
       toRender = <MyArticles />;
 
@@ -44,6 +51,7 @@ const Dashboard = () => {
     case "/dashboard/manageusers":
       toRender = <ManageUsers />;
       break;
+   
 
     case "/dashboard/logout":
       logout();

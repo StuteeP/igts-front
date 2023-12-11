@@ -43,10 +43,51 @@ const Article = () => {
       }
     }
   };
+  const [data, setData] = useState([]);
   const [liked, setLiked] = useState(false);
   useEffect(() => {
     fetchBlog();
   }, [user]);
+  const fetchBlogs = async () => {
+    const token = localStorage.getItem("jwt");
+    const response = await fetch(`${SERVER_URL}/api/user/getreadinglist`, {
+      
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: token,
+      },
+    });
+    if (response.status === 200) {
+      const data2 = await response.json();
+      console.log(data2)
+      if (data2.success) {
+        
+        console.log(data2.readingLists)
+        setData(data2.readingLists);
+        return data2.readingLists
+      }
+    }
+    else{
+      console.log("error")
+      console.log(response.json().error)
+    }
+    
+  };
+  const [toread, setRead] = useState(false);
+  useEffect(() => {
+    
+    const checkIfInList = async () => {
+      const readingList = await fetchBlogs();
+      console.log(data)
+      const isInList = readingList.some((el) => el._id === blog_id);
+      console.log(isInList)
+      setRead(isInList);
+      
+    };
+  
+    checkIfInList();
+  }, [user, blog_id]); 
 
   const [editor, setEditor] = useState();
 
@@ -120,6 +161,8 @@ const Article = () => {
         heading={heading}
         thumbnail={thumbnail}
         liked={liked}
+        toread = {toread}
+        setRead = {setRead}
         likes={blog ? blog.likes : 0}
         fetchBlog={fetchBlog}
       />
